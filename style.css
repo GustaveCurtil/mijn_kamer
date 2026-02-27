@@ -3,13 +3,18 @@ html, * {
     margin: 0;
 }
 
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 :root {
     --rows: 7;
     --columns: 11;
 }
 
 body {
-
+    overflow: hidden;
+    overscroll-behavior: ;
 }
 
 main {
@@ -24,11 +29,18 @@ main>div {
 }
 
 div>div {
-    min-width: max(calc(100vw / (var(--columns) - 1)), calc(90svh / (var(--rows) - 1)));
+    min-width: max(calc(140vw / (var(--columns))), calc(140svh / (var(--rows))));
     aspect-ratio: 1/1;
     border: 1px solid white;
 }
 
 nav {
     background-color: rgb(207, 207, 207);
+}
+
+.home {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
