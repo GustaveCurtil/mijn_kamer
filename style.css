@@ -15,16 +15,16 @@ html, * {
 
 body {
     overflow: hidden;
-    overscroll-behavior: ;
 }
 
 main {
     background-color: black;
     width: 100vw;
     height: 90svh;
-    overflow: scroll;
+    overflow: hidden;
     background-image: url(image.png);
     background-size: cover;
+    background-position: 50%;
     background-attachment: fixed;
 }
 
