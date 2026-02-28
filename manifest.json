@@ -3,7 +3,7 @@
   "name": "Mijn kamer",
   "icons": [
     {
-      "src": "icons.png",
+      "src": "icon.png",
       "type": "image/png",
       "sizes": "192x192"
     }
@@ -12,19 +12,5 @@
   "background_color": "#3367D6",
   "display": "standalone",
   "theme_color": "#3367D6",
-  "description": "Weather forecast information",
-  "screenshots": [
-    {
-      "src": "/images/screenshot1.png",
-      "type": "image/png",
-      "sizes": "540x720",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "/images/screenshot2.jpg",
-      "type": "image/jpg",
-      "sizes": "720x540",
-      "form_factor": "wide"
-    }
-  ]
+  "description": "Blablabla"
 }

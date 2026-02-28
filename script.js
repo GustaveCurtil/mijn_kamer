@@ -2,38 +2,48 @@
     console.log((main.scrollHeight - main.clientHeight) / 2)
     main.scrollTo((main.scrollWidth - main.clientWidth) / 2, (main.scrollHeight - main.clientHeight) / 2);
 
-    const slider = document.querySelector('main');
-let isDown = false;
-let startX;
-let scrollLeft;
-let startY;
-let scrollTop;
+const slider = document.querySelector('main');
 
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-    startY = e.pageY - slider.offsetTop;
-  scrollTop = slider.scrollTop;
-});
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+let up = false;
+let down = false;
+let right = false;
+let left = false;
+
+  let aspectRatio = slider.clientWidth / slider.clientHeight
+
 slider.addEventListener('mousemove', (e) => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walkX = (x - startX); //scroll-fast
-  slider.scrollLeft = scrollLeft - walkX;
+  left = false;
+  right = false;
+  up = false;
+  down = false;
 
-  const y = e.pageY - slider.offsetTop;
-  const walk = (y - startY); //scroll-fast
-  slider.scrollTop = scrollTop - walk;
-  console.log(walk);
-});
+  if ((e.pageX / slider.clientWidth) < (0.2 * aspectRatio)) {
+    left = true;
+  } else if ((e.pageX / slider.clientWidth) > (0.8 / aspectRatio)) {
+    right = true;
+  }
+
+  if ((e.pageY / slider.clientHeight) < (0.2 * aspectRatio)) {
+    up = true;
+  } else if ((e.pageY / slider.clientHeight) > (0.8 / aspectRatio)) {
+    down = true;
+  }
+})
+
+function panning() {
+  setInterval(() => {
+    if (left) {
+      slider.scrollLeft -= 2;
+    } else if (right) {
+      slider.scrollLeft += 2;
+    }
+
+    if (up) {
+      slider.scrollTop -= 2;
+    } else if (down) {
+      slider.scrollTop += 2;
+    }
+  }, 10);
+}
+
+
